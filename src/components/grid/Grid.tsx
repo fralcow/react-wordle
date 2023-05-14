@@ -3,6 +3,8 @@ import { CompletedRow } from './CompletedRow'
 import { CurrentRow } from './CurrentRow'
 import { EmptyRow } from './EmptyRow'
 import {useState} from "react";
+import { useEffect } from 'react';
+
 
 type Props = {
   solution: string
@@ -17,7 +19,7 @@ export const Grid = ({
   guesses,
   currentGuess,
   isRevealing,
-  currentRowClassName,
+  currentRowClassName
 }: Props) => {
   const empties =
     guesses.length < MAX_CHALLENGES - 1

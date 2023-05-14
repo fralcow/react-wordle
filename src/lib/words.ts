@@ -126,10 +126,10 @@ export const getWordOfDay = (index: number) => {
   return localeAwareUpperCase(WORDS[index % WORDS.length])
 }
 
-export const getSolution = (gameDate: Date) => {
+export const getSolution = (gameDate: Date, round_number: number) => {
   const nextGameDate = getNextGameDate(gameDate)
   const index = getIndex(gameDate)
-  const wordOfTheDay = getWordOfDay(index)
+  const wordOfTheDay = getWordOfDay(round_number)
   return {
     solution: wordOfTheDay,
     solutionGameDate: gameDate,
@@ -177,4 +177,4 @@ export const getIsLatestGame = () => {
 }
 
 export const { solution, solutionGameDate, solutionIndex, tomorrow } =
-  getSolution(getGameDate())
+  getSolution(getGameDate(), 0)
