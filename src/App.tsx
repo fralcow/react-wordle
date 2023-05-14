@@ -110,12 +110,6 @@ function App() {
       : false
   )
 
-  const [reload, setReload] = useState<boolean>(false)
-
-  const handleReload = () => {
-    setReload(!reload)
-  }
-
   useEffect(() => {
     // if no game state on load,
     // show the user the how-to info modal
