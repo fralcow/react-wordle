@@ -13,6 +13,26 @@
   --present-cell-bg-color: theme('colors.yellow.400');
 }
 
+.centered-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.centered-text h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.centered-text p {
+  color: aqua;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
 .dark {
   --default-cell-bg-color: theme('colors.slate.900');
   --default-cell-border-color: theme('colors.white');
