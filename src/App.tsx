@@ -106,9 +106,10 @@ function App() {
       setCurrentGuess('')
       setIsRevealing(false)
       setCurrentRowClass('')
-      console.log('srabotalo')
+      console.log('srabotal win')
     }
     if (loaded.guesses.length === MAX_CHALLENGES && !RoundWasWon) {
+      console.log('srabotal lose')
       setIsGameLost(true)
       showErrorAlert(CORRECT_WORD_MESSAGE(solution.solution), {
         persist: true,
@@ -190,14 +191,16 @@ function App() {
   }, [guesses])
 
   useEffect(() => {
-    if (isRoundWon) {
+    console.log('won:' + isGameWon)
+    console.log('lost:' + isGameLost)
+    if (isGameWon) {
       const winMessage =
         WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)]
       const delayMs = REVEAL_TIME_MS * solution.solution.length
 
       showSuccessAlert(winMessage, {
         delayMs,
-        onClose: () => setIsStatsModalOpen(isGameWon),
+        onClose: () => setIsStatsModalOpen(true),
       })
     }
 
@@ -276,6 +279,7 @@ function App() {
           setStats(addStatsForCompletedGame(stats, guesses.length))
         }
 
+        setIsRoundWon(true)
         setIsRevealing(true)
         setTimeout(() => {
           console.log('vot seychas')
@@ -285,14 +289,16 @@ function App() {
           setCurrentGuess('')
           setIsRevealing(false)
           setCurrentRowClass('')
-          return setIsRoundWon(true)
+          // return setIsRoundWon(true)
         }, REVEAL_TIME_MS * solution.solution.length)
+        return setIsRoundWon(true)
       }
 
       if (guesses.length === MAX_CHALLENGES - 1) {
         if (isLatestGame) {
           setStats(addStatsForCompletedGame(stats, guesses.length + 1))
         }
+        console.log(guesses.length)
         setIsGameLost(true)
         showErrorAlert(CORRECT_WORD_MESSAGE(solution.solution), {
           persist: true,
