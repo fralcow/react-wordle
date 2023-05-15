@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-    textType: 'A' | 'B' | 'C' | 'D'; // `textType` prop can be either 'A', 'B', 'C' or 'D'
+    textType: number;
 };
 
 export const Description = ({
@@ -10,16 +10,16 @@ export const Description = ({
     let text_h1 = '';
     let text_p = '';
 
-    if (textType === 'A') {
+    if (textType === 0) {
         text_h1 = '_____ ________, ____';
         text_p ='Test'
-    } else if (textType === 'B') {
+    } else if (textType === 1) {
         text_h1 = 'Let\'s ________, ____';
         text_p ='Test test'
-    } else if (textType === 'C') {
+    } else if (textType === 2) {
         text_h1 = 'Let\'s go, ____';
         text_p ='Test test test'
-    } else if (textType === 'D') {
+    } else if (textType === 3) {
         text_h1 = 'Let\'s go, Liquid';
         text_p ='Test test test test'
     }

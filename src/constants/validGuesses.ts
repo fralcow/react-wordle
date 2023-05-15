@@ -1,5 +1,8 @@
 export const VALID_GUESSES = [
   'aahed',
+  'lets',
+  'go',
+  'liquid',
   'aalii',
   'aargh',
   'aarti',

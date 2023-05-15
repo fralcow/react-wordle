@@ -4,6 +4,7 @@ import { CurrentRow } from './CurrentRow'
 import { EmptyRow } from './EmptyRow'
 import {useState} from "react";
 import { useEffect } from 'react';
+import setReloadComponent from 'src/App';
 
 
 type Props = {
@@ -37,10 +38,10 @@ export const Grid = ({
         />
       ))}
       {guesses.length < MAX_CHALLENGES && (
-        <CurrentRow guess={currentGuess} className={currentRowClassName} />
+        <CurrentRow guess={currentGuess} solution={solution} className={currentRowClassName} />
       )}
       {empties.map((_, i) => (
-        <EmptyRow key={i} />
+        <EmptyRow key={i} solution={solution} />
       ))}
     </>
   )

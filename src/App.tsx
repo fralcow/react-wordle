@@ -106,6 +106,7 @@ function App() {
       setCurrentGuess('')
       setIsRevealing(false)
       setCurrentRowClass('')
+      console.log('srabotalo')
     }
     if (loaded.guesses.length === MAX_CHALLENGES && !RoundWasWon) {
       setIsGameLost(true)
@@ -189,14 +190,14 @@ function App() {
   }, [guesses])
 
   useEffect(() => {
-    if (isGameWon) {
+    if (isRoundWon) {
       const winMessage =
         WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)]
       const delayMs = REVEAL_TIME_MS * solution.solution.length
 
       showSuccessAlert(winMessage, {
         delayMs,
-        onClose: () => setIsStatsModalOpen(true),
+        onClose: () => setIsStatsModalOpen(isGameWon),
       })
     }
 
@@ -227,9 +228,6 @@ function App() {
     if (isGameWon || isGameLost) {
       return
     }
-
-    // if (guesses.length === 0)
-    // {setIsRoundWon(false)}
 
     if (!(unicodeLength(currentGuess) === solution.solution.length)) {
       setCurrentRowClass('jiggle')
@@ -277,13 +275,18 @@ function App() {
         if (isGameWon) {
           setStats(addStatsForCompletedGame(stats, guesses.length))
         }
-        setRoundSolution(getSolution(gameDate, RoundCounter + 1))
-        setRoundCounter(RoundCounter + 1)
-        setGuesses([])
-        setCurrentGuess('')
-        setIsRevealing(false)
-        setCurrentRowClass('')
-        return setIsRoundWon(true)
+
+        setIsRevealing(true)
+        setTimeout(() => {
+          console.log('vot seychas')
+          setRoundSolution(getSolution(gameDate, RoundCounter + 1))
+          setRoundCounter(RoundCounter + 1)
+          setGuesses([])
+          setCurrentGuess('')
+          setIsRevealing(false)
+          setCurrentRowClass('')
+          return setIsRoundWon(true)
+        }, REVEAL_TIME_MS * solution.solution.length)
       }
 
       if (guesses.length === MAX_CHALLENGES - 1) {
@@ -320,7 +323,7 @@ function App() {
 
         <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
           <div className="flex grow flex-col justify-center pb-6 short:pb-2">
-            <Description textType={'A'} />
+            <Description textType={RoundCounter} />
             <Grid
               solution={solution.solution}
               guesses={guesses}
@@ -329,9 +332,9 @@ function App() {
               currentRowClassName={currentRowClass}
             />
           </div>
-          <div className="centered-text">
-            <h1>Round number {RoundCounter}</h1>
-          </div>
+          {/*<div className="centered-text">*/}
+          {/*  <h1>Round number {RoundCounter}</h1>*/}
+          {/*</div>*/}
           <Keyboard
             onChar={onChar}
             onDelete={onDelete}

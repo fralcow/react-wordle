@@ -38,10 +38,10 @@ export const Navbar = ({
         </div>
         <p className="text-xl font-bold dark:text-white">{GAME_TITLE}</p>
         <div className="right-icons">
-          <ChartBarIcon
-            className="mr-3 h-6 w-6 cursor-pointer dark:stroke-white"
-            onClick={() => setIsStatsModalOpen(true)}
-          />
+          {/*<ChartBarIcon*/}
+          {/*  className="mr-3 h-6 w-6 cursor-pointer dark:stroke-white"*/}
+          {/*  onClick={() => setIsStatsModalOpen(true)}*/}
+          {/*/>*/}
           <CogIcon
             className="h-6 w-6 cursor-pointer dark:stroke-white"
             onClick={() => setIsSettingsModalOpen(true)}
