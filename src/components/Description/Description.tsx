@@ -17,10 +17,10 @@ export const Description = ({
         text_h1 = 'Keep ________, ____';
         text_p ='Test test'
     } else if (textType === 2) {
-        text_h1 = 'Keep rocking, ____';
+        text_h1 = 'Keep smiling, ____';
         text_p ='Test test test'
     } else if (textType === 3) {
-        text_h1 = 'Keep rocking, gorgeous :)';
+        text_h1 = 'Keep rocking, sunshine :)';
         text_p ='Test test test test'
     }
 
