@@ -11,23 +11,23 @@ export const Description = ({
     let text_p = '';
 
     if (textType === 0) {
-        text_h1 = '_____ ________, ____';
+        text_h1 = '____ _______, ________';
         text_p ='Test'
     } else if (textType === 1) {
-        text_h1 = 'Let\'s ________, ____';
+        text_h1 = 'Keep ________, ____';
         text_p ='Test test'
     } else if (textType === 2) {
-        text_h1 = 'Let\'s go, ____';
+        text_h1 = 'Keep rocking, ____';
         text_p ='Test test test'
     } else if (textType === 3) {
-        text_h1 = 'Let\'s go, Liquid';
+        text_h1 = 'Keep rocking, gorgeous :)';
         text_p ='Test test test test'
     }
 
     return (
         <div className="centered-text">
             <h1>{text_h1}</h1>
-            <p>{text_p}</p>
+            {/*<p>{text_p}</p>*/}
         </div>
     )
 };

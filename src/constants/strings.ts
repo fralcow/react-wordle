@@ -1,4 +1,4 @@
-export const GAME_TITLE = 'Custom edition' // process.env.REACT_APP_GAME_NAME!
+export const GAME_TITLE = 'Anechka\'s birthday edition'  // process.env.REACT_APP_GAME_NAME!
 
 export const WIN_MESSAGES = ['Great Job!', 'Awesome', 'Well done!']
 export const GAME_COPIED_MESSAGE = 'Game copied to clipboard'

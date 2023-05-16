@@ -3,6 +3,7 @@ import './App.css'
 import { ClockIcon } from '@heroicons/react/outline'
 import { format } from 'date-fns'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
+import JSConfetti from 'js-confetti'
 import { useEffect, useState } from 'react'
 import Div100vh from 'react-div-100vh'
 
@@ -67,6 +68,7 @@ function App() {
     getSolution(gameDate, RoundCounter)
   )
 
+  const jsConfetti = new JSConfetti()
   const { showError: showErrorAlert, showSuccess: showSuccessAlert } =
     useAlert()
   const [currentGuess, setCurrentGuess] = useState('')
@@ -274,6 +276,14 @@ function App() {
       if (winningWord) {
         if (RoundCounter === 2) {
           setIsGameWon(true)
+          setTimeout(() => {
+            jsConfetti.addConfetti({
+              emojis: ['🌈', '🦄', '💫', '🌸'],
+            })
+            setTimeout(() => {
+              jsConfetti.addConfetti()
+            }, 500)
+          }, REVEAL_TIME_MS * solution.solution.length)
         }
         if (isGameWon) {
           setStats(addStatsForCompletedGame(stats, guesses.length))

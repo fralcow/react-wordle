@@ -64,21 +64,35 @@ export const StatsModal = ({
         isOpen={isOpen}
         handleClose={handleClose}
       >
-        <StatBar gameStats={gameStats} />
-        {ENABLE_MIGRATE_STATS && (
-          <MigrationIntro handleMigrateStatsButton={handleMigrateStatsButton} />
-        )}
+        {/*<StatBar gameStats={gameStats} />*/}
+        {/*{ENABLE_MIGRATE_STATS && (*/}
+        {/*  <MigrationIntro handleMigrateStatsButton={handleMigrateStatsButton} />*/}
+        {/*)}*/}
+        <p className="text-sm text-gray-500 dark:text-gray-300">
+          That's it that's all. Я поздравляю тебя с днем рождения и надеюсь, что эта мини-игра сделала в нем
+          на одну твою улыбку больше. Желаю тебе бычьего здоровья, чтобы вывозить любые тусы; удачи, чтобы твоя магия
+          работала безотказно; и свободы, потому что ты знаешь, как ей красиво пользоваться. Ты уже заебись,
+          дальше - больше!<br /><br />
+
+          Держи хвост пистолетом, обнял :) <br /><br />
+
+          P.S Если ты видишь это сообщение, значит ты прошла игру. Вообще оно появляется и если проебать,
+          но я был настолько в тебе уверен, что даже не тестировал этот сценарий.
+        </p>
+
       </BaseModal>
     )
   }
   return (
     <BaseModal
-      title={STATISTICS_TITLE}
+      title={'That\'s a bummer'}
       isOpen={isOpen}
       handleClose={handleClose}
     >
       <p className="text-sm text-gray-500 dark:text-gray-300">
-      Test test test
+      Видимо произошел какой-то баг и ты проиграла по ошибке. Не могу представить, как еще это могло произойти.
+        Используй режим инкогнито, чтобы сбросить сессию и попробовать снова, если хочешь.
+        Баг репорты принимаю в @donskoy
       </p>
       {/*<StatBar gameStats={gameStats} />*/}
       {/*<h4 className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100">*/}
