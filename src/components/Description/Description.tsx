@@ -20,7 +20,7 @@ export const Description = ({
         text_h1 = 'Keep smiling, ____';
         text_p ='Test test test'
     } else if (textType === 3) {
-        text_h1 = 'Keep rocking, sunshine :)';
+        text_h1 = 'Keep smiling, sunshine :)';
         text_p ='Test test test test'
     }
 
