@@ -1,5 +1,7 @@
 export const WORDS = [
   'keep',
-  'rocking',
-  'gorgeous',
+  // 'rocking',
+    'smiling',
+  // 'gorgeous',
+    'sunshine',
 ]
